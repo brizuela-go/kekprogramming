@@ -5,9 +5,9 @@ import { db } from "@/utils/firebase";
 export const dynamic = "auto";
 export const revalidate = true;
 export const fetchCache = "auto";
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const preferredRegion = "auto";
-export const maxDuration = 5;
+export const maxDuration = 20;
 
 export default function MyComponent() {}
 
