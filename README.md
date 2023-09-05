@@ -4,6 +4,12 @@
 
 I made this web app to consume a progrmaming memes api in my profile README.md. Feel free to upload your best memes and wait for the approval.
 
+API
+
+```bash
+https://kekprogramming.herokuapp.com/api/random
+```
+
 ## Technologies
 
 - Next.js (app router)
