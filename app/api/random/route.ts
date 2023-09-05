@@ -2,6 +2,15 @@ import { NextResponse } from "next/server";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 
+export const dynamic = "auto";
+export const revalidate = true;
+export const fetchCache = "auto";
+export const runtime = "edge";
+export const preferredRegion = "auto";
+export const maxDuration = 5;
+
+export default function MyComponent() {}
+
 export async function GET() {
   const res = await getDocs(collection(db, "memes"));
 
@@ -18,7 +27,3 @@ export async function GET() {
 
   return NextResponse.redirect(randomMeme.url);
 }
-
-const seed = new Date().getSeconds();
-
-console.log(seed);
