@@ -33,9 +33,9 @@ export default async function Home() {
       </p>
 
       <Upload />
-      <Link href="/api/random">
-        <code className="hover:underline hover:-translate-y-2 transition duration-200 ease-in-out text-center ">
-          https://kekprogramming.vercel.app/api/random
+      <Link className="flex justify-center" href="/api/random">
+        <code className=" hover:underline hover:-translate-y-2 transition duration-200 ease-in-out text-center ">
+          kekprogramming/api/random
         </code>
       </Link>
       <div className="flex justify-center items-center">
