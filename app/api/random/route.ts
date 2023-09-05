@@ -18,5 +18,5 @@ export async function GET() {
 
   console.log(randomMeme.url);
 
-  return NextResponse.redirect(randomMeme.url);
+  return NextResponse.json({ url: randomMeme.url });
 }
