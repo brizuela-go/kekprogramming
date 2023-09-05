@@ -7,7 +7,7 @@ I made this web app to consume a programming memes api in my profile README.md. 
 API
 
 ```bash
-https://kekprogramming.herokuapp.com/api/random
+https://kekprogramming.vercel.app/api/random
 ```
 
 ## Technologies
