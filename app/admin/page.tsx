@@ -25,7 +25,7 @@ const AdminPage = async (props: Props) => {
     return (
       <div className="flex justify-center items-center min-h-screen flex-col gap-y-5">
         <h1 className=" font-semibold text-4xl">
-          You don't have access to this page
+          You don&apos;t have access to this page
         </h1>
         <Link href="/">
           <button className="font-semibold  bg-muted px-6 py-2 rounded-lg hover:opacity-90 active:scale-95  transition duration-200 ease-in-out ">
