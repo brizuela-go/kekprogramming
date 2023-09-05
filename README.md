@@ -2,7 +2,7 @@
 
 ## What is Kek Programming?
 
-I made this web app to consume a progrmaming memes api in my profile README.md. Feel free to upload your best memes and wait for the approval.
+I made this web app to consume a programming memes api in my profile README.md. Feel free to upload your best memes and wait for the approval.
 
 API
 
