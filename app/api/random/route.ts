@@ -16,7 +16,5 @@ export async function GET() {
   const randomIndex = Math.floor(Math.random() * keks.length);
   const randomMeme = keks[randomIndex];
 
-  console.log(randomMeme.url);
-
-  return NextResponse.json({ url: randomMeme.url });
+  return NextResponse.redirect(randomMeme.url);
 }
