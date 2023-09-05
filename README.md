@@ -15,6 +15,9 @@ https://kekprogramming.vercel.app/api/random
 - Next.js (app router)
 - Tailwind CSS (styling)
 - Vercel (deployment)
+- Clerk (authentication)
+- Uploadthing (cloud)
+- Firebase (database)
 
 ## How to run
 
