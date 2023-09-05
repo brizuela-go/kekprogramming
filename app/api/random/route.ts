@@ -9,11 +9,12 @@ export async function GET() {
 
   const keks = docs.filter((doc) => doc.kek === true);
 
-  const randomMeme = keks[Math.floor(Math.random() * docs.length)];
-
-  if (!randomMeme) {
+  if (keks.length === 0) {
     return NextResponse.json({ error: "No memes found" }, { status: 404 });
   }
+
+  const randomIndex = Math.floor(Math.random() * keks.length);
+  const randomMeme = keks[randomIndex];
 
   return NextResponse.redirect(randomMeme.url);
 }
