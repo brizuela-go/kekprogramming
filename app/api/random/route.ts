@@ -9,8 +9,6 @@ export const runtime = "nodejs";
 export const preferredRegion = "auto";
 export const maxDuration = 20;
 
-export default function MyComponent() {}
-
 export async function GET() {
   const res = await getDocs(collection(db, "memes"));
 
