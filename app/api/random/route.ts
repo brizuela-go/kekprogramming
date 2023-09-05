@@ -18,3 +18,7 @@ export async function GET() {
 
   return NextResponse.redirect(randomMeme.url);
 }
+
+const seed = new Date().getSeconds();
+
+console.log(seed);
