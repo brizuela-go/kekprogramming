@@ -37,7 +37,7 @@ export default function Upload() {
         endpoint="imageUploader"
         onClientUploadComplete={(res: any) => {
           // Do something with the response
-          console.log("Files: ", res);
+          // console.log("Files: ", res);
 
           handleUploadImage(res[0].fileUrl, res[0].fileName);
         }}
