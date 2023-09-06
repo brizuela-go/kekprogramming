@@ -1,7 +1,7 @@
 "use client";
 
 import { db } from "@/utils/firebase";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, setDoc, updateDoc } from "firebase/firestore";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -32,7 +32,7 @@ const MemeCard = ({ meme }: Props) => {
   const cringeMeme = async (id: string) => {
     const docRef = doc(db, "memes", id);
 
-    await updateDoc(docRef, {
+    await setDoc(docRef, {
       kek: false,
     });
 

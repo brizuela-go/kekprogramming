@@ -1,7 +1,7 @@
 import { db } from "@/utils/firebase";
 import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
 
-import { currentUser } from "@clerk/nextjs";
+import { UserButton, currentUser } from "@clerk/nextjs";
 import type { User } from "@clerk/nextjs/api";
 import MemeCard from "@/components/MemeCard";
 import Link from "next/link";
@@ -32,6 +32,9 @@ const AdminPage = async (props: Props) => {
             Go back
           </button>
         </Link>
+        <div className="fixed top-5 right-7">
+          <UserButton afterSignOutUrl="/" />
+        </div>
       </div>
     );
   }
@@ -47,6 +50,9 @@ const AdminPage = async (props: Props) => {
             Go back
           </button>
         </Link>
+        <div className="fixed top-5 right-7">
+          <UserButton afterSignOutUrl="/" />
+        </div>
       </div>
     );
   }
@@ -57,6 +63,9 @@ const AdminPage = async (props: Props) => {
         {memes.map((meme: any) => (
           <MemeCard key={meme.name} meme={meme} />
         ))}
+      </div>
+      <div className="fixed top-5 right-7">
+        <UserButton afterSignOutUrl="/" />
       </div>
     </div>
   );

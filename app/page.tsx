@@ -3,6 +3,7 @@ import { db } from "@/utils/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Link from "next/link";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 async function getMemes() {
   const res = await getDocs(collection(db, "memes"));
@@ -19,6 +20,15 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col space-y-10 my-40 max-w-7xl mx-auto  ">
+      <div className="fixed top-5 right-7 flex justify-center items-center gap-x-4">
+        <Link
+          href={"/admin"}
+          className="bg-foreground text-black font-medium hover:opacity-90 active:scale-95 transition duration-200 ease-in-out py-2 px-4 rounded"
+        >
+          Go to admin panel
+        </Link>
+        <UserButton afterSignOutUrl="/" />
+      </div>
       <h1 className="text-9xl max-xl:text-6xl font-semibold tracking-tighter text-center  ">
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-indigo-700">
           Kek
