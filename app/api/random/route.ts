@@ -28,7 +28,10 @@ async function getRandomMeme() {
 
     return randomMeme;
   } catch (error) {
-    return null; // Handle error gracefully
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }
 
