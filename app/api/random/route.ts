@@ -4,7 +4,7 @@ import { db } from "@/utils/firebase";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const preferredRegion = "auto";
 export const maxDuration = 5;
 
