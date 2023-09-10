@@ -2,25 +2,50 @@ import { NextResponse } from "next/server";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 
+// Constants for configuration
 export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const revalidate = 10;
 export const runtime = "nodejs";
 export const preferredRegion = "auto";
-export const maxDuration = 5;
+
+// Function to get a random meme from Firebase
+export async function getRandomMeme() {
+  try {
+    // Get all memes from the 'memes' collection
+    const querySnapshot = await getDocs(collection(db, "memes"));
+    const docs = querySnapshot.docs.map((doc) => doc.data());
+
+    // Filter memes with 'kek' property set to true
+    const kekMemes = docs.filter((doc) => doc.kek === true);
+
+    if (kekMemes.length === 0) {
+      return null; // No kek memes found
+    }
+
+    // Choose a random kek meme
+    const randomIndex = Math.floor(Math.random() * kekMemes.length);
+    const randomMeme = kekMemes[randomIndex];
+
+    return randomMeme;
+  } catch (error) {
+    return null; // Handle error gracefully
+  }
+}
 
 export async function GET() {
-  const res = await getDocs(collection(db, "memes"));
+  try {
+    const randomMeme = await getRandomMeme();
 
-  const docs = res.docs.map((doc) => doc.data());
+    if (!randomMeme) {
+      return NextResponse.json({ error: "No memes found" }, { status: 404 });
+    }
 
-  const keks = docs.filter((doc) => doc.kek === true);
-
-  if (keks.length === 0) {
-    return NextResponse.json({ error: "No memes found" }, { status: 404 });
+    // Redirect to the URL of the random meme
+    return NextResponse.redirect(randomMeme.url);
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
-
-  const randomIndex = Math.floor(Math.random() * keks.length);
-  const randomMeme = keks[randomIndex];
-
-  return NextResponse.redirect(randomMeme.url);
 }
