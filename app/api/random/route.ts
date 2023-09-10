@@ -2,12 +2,11 @@ import { NextResponse } from "next/server";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 
-export const dynamic = "auto";
-export const revalidate = true;
-export const fetchCache = "auto";
-export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+export const runtime = "edge";
 export const preferredRegion = "auto";
-export const maxDuration = 20;
+export const maxDuration = 5;
 
 export async function GET() {
   const res = await getDocs(collection(db, "memes"));
