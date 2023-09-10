@@ -9,7 +9,7 @@ export const runtime = "nodejs";
 export const preferredRegion = "auto";
 
 // Function to get a random meme from Firebase
-export async function getRandomMeme() {
+async function getRandomMeme() {
   try {
     // Get all memes from the 'memes' collection
     const querySnapshot = await getDocs(collection(db, "memes"));
