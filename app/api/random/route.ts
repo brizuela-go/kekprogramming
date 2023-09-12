@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/utils/firebase";
 
@@ -35,7 +35,7 @@ async function getRandomMeme() {
   }
 }
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
     const randomMeme = await getRandomMeme();
 
