@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
 
+// lol
+
 async function getMemes() {
   const res = await getDocs(collection(db, "memes"));
 
